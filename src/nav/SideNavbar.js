@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import SelectIocn from "../assets/Selected-Input.svg";
 
-const SideNavbar = () => {
+const SideNavbar = ({ getsideNavOpen }) => {
   const [openNav, setOpenNav] = useState(false);
   const [selectedItem, getSelectedItem] = useState("laneDetails");
+
+  const openSidenav = () =>{
+    setOpenNav(!openNav)
+    getsideNavOpen()
+  }
 
   return (
     <div
@@ -19,7 +24,7 @@ const SideNavbar = () => {
             </span>
             <button
               className="text-[#6D8EB4] font-sans text-[12px] font-semibold"
-              onClick={() => setOpenNav(true)}
+              onClick={openSidenav}
             >
               COLLAPSE
             </button>
@@ -166,9 +171,7 @@ const SideNavbar = () => {
         <div className="flex items-center flex-col">
           <button
             className="-rotate-90 mt-[10px] cursor-pointer font-semibold text-[12px] leading-tight text-[#6D8EB4] uppercase pr-5"
-            onClick={() => {
-              setOpenNav(false);
-            }}
+            onClick={openSidenav}
           >
             Expand
           </button>
