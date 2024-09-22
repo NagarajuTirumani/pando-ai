@@ -207,7 +207,7 @@ export default function LaneDetails() {
                 </table>
               </div>
             </div>
-            <div className="w-full overflow-x-auto">
+            <div className="w-full overflow-x-auto scroll-contaier">
               <div className="bg-[#F9FAFA] px-3 py-1.5 rounded w-full space-x-2">
                 <Dropdown
                   name={"Movement Type "}
@@ -234,38 +234,39 @@ export default function LaneDetails() {
                   }
                 />
               </div>
-              <div className="font-sans mt-5 w-[900px]">
-                <table className="w-[100%] overflow-x-scroll">
-                  <thead className="text-xs text-gray-700 text-left flex items-end w-[100%] space-x-5">
+              <div className="font-sans w-[900px]">
+                <table className="w-[100%] overflow-x-scroll mt-5">
+                  <thead className="text-[10px] text-[#005399] uppercase text-left flex items-end content-center w-[100%] space-x-5 leading-[13.62px] tracking-[0.5px]">
+                    <tr className="w-[12%]">
+                      <th className="flex space-x-1 mb-[10px] mt-3">
+                        <span className="text-[10px]">Movement Type</span>
+                      </th>
+                    </tr>
+                    <tr className="w-[24%]">
+                      <th className="flex items-center mb-2 text-[10px]">
+                        <div className="ml-4">
+                          Contract Type | <br />
+                          contract parameter
+                        </div>
+                      </th>
+                    </tr>
                     <tr className="w-[18%]">
-                      <th className="flex space-x-1 mb-3">
-                        <span className="text-[12px]">Movement Type</span>
+                      <th className="flex flex-wrap space-x-1 mb-3">
+                        <span className="text-[10px]">Delivery Type</span>
+                        <div className="border-l-2 border-[#005399] h-[13.62px]"></div>
+                        <span className="text-[10px]">THU</span>
+                      </th>
+                    </tr>
+                    <tr className="w-[18%]">
+                      <th className="flex flex-wrap space-x-1 mb-3">
+                        <span className="text-[10px]">Budget</span>
+                        <div className="border-l-2 border-[#005399] h-[13.62px]"></div>
+                        <span className="text-[10px]">Ceiling price</span>
                       </th>
                     </tr>
                     <tr className="w-[18%]">
                       <th className="flex space-x-1 mb-3">
-                        <span className="text-[12px]">Contract Type</span>
-                        <div className="border-l-2 border-[#9CB3BF80] h-8"></div>
-                        <span className="text-[12px]">contract parameter</span>
-                      </th>
-                    </tr>
-                    <tr className="w-[18%]">
-                      <th className="flex space-x-1 mb-3">
-                        <span className="text-[12px]">Delivery Type</span>
-                        <div className="border-l-2 border-[#9CB3BF80] h-4"></div>
-                        <span className="text-[12px]">THU</span>
-                      </th>
-                    </tr>
-                    <tr className="w-[18%]">
-                      <th className="flex space-x-1 mb-3">
-                        <span className="text-[12px]">Budget</span>
-                        <div className="border-l-2 border-[#9CB3BF80] h-4"></div>
-                        <span className="text-[12px]">Ceiling price</span>
-                      </th>
-                    </tr>
-                    <tr className="w-[18%]">
-                      <th className="flex space-x-1 mb-3">
-                        <span className="text-[12px]">Shipment count</span>
+                        <span className="text-[10px]">Shipment count</span>
                       </th>
                     </tr>
                     <tr className="w-[6%]">
@@ -281,24 +282,22 @@ export default function LaneDetails() {
                       return (
                         <tr
                           key={index}
-                          className="flex items-center justify-between space-x-5 px-3 py-6 rounded font-sans text-[12px] bg-[#FAFAFA] mt-1.5 overflow-auto"
+                          className="flex items-center space-x-5 px-3 py-6 rounded font-sans text-[12px] bg-[#FAFAFA] mt-1.5 overflow-auto scroll-contaier"
                         >
-                          <td className="flex rounded w-[16%]">
+                          <td className="flex w-[12%] space-x-1 font-sans text-[12px] leading-[16px] text-[#404040]">
                             {item.movementType}
                           </td>
-                          <td className="flex rounded w-[18%]">
-                            {item.contractType}
-                            <div className="border-l-2 mx-1 border-[#9CB3BF80] h-4"></div>
-                            {item.contractParamenter}
+                          <td className="flex items-center w-[22%]">
+                            {item.contractType} | {item.contractParamenter}
                           </td>
-                          <td className="flex rounded w-[18%]">
+                          <td className="flex items-center w-[18%]">
                             {item.deliveryType}
-                            <div className="border-l-2 mx-1 border-[#9CB3BF80] h-4"></div>
+                            <div className="border-l-2 mx-1 border-[#404040] h-[12px]"></div>
                             {item.THU}
                           </td>
-                          <td className="flex rounded w-[18%]">
+                          <td className="flex items-center w-[18%]">
                             {item.budget}
-                            <div className="border-l-2 mx-1 border-[#9CB3BF80] h-4"></div>
+                            <div className="border-l-2 mx-1 border-[#404040] h-[12px]"></div>
                             {item.price}
                           </td>
                           <td className="flex rounded w-[18%]">{item.count}</td>
@@ -312,7 +311,11 @@ export default function LaneDetails() {
           </div>
         </div>
       </div>
-      <div className={`${openLaneUpload ? "w-[25%] opacity-100" : "w-4 opacity-0"} duration-300 transition-smooth`}>
+      <div
+        className={`${
+          openLaneUpload ? "w-[25%] opacity-100" : "w-4 opacity-0"
+        } duration-300 transition-smooth`}
+      >
         {<LaneUpdate closeLaneUpload={closeLaneUpload} />}
       </div>
     </div>

@@ -14,7 +14,7 @@ const SubHeader = () => {
       <div className="flex space-x-3">
         <div className="border-l-2 border-[#9CB3BF80] h-[50px]"></div>
         <div className="p-1 flex items-center">
-        <button className="bg-[#0076DD] rounded h-9 w-40 text-[#ffffff] text-[12px] font-sans font-semibold ">INITIATE EVENT</button>
+        <button className="bg-[#0076DD] rounded h-[30px] w-[112px] text-[#ffffff] text-[12px] font-sans font-semibold ">INITIATE EVENT</button>
         </div>
       </div>
     </div>
