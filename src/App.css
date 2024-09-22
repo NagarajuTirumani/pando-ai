@@ -26,6 +26,18 @@ body {
   transition: all 0.4s ease-in;
 }
 
+.main-container {
+  overflow-x: hidden;
+}
+
+.lane-details-conatiner {
+  width: calc(100% - 260px);
+}
+
+.lane-details-conatiner_collapse {
+  width: calc(100% - 52px);
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

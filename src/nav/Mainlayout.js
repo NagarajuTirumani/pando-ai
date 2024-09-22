@@ -12,18 +12,22 @@ const MainLayout = () => {
   };
 
   return (
-    <>
+    <div className="main-container">
       <Header />
       <SubHeader />
       <div className="p-3 bg-gray-100 min-h-[100vh] flex space-x-2">
         <SideNavbar getsideNavOpen={openNavbar} />
         <div
-          className={`bg-white rounded ${sidenavOpen ? "w-[96%]" : "w-[84%]"} duration-300`}
+          className={`bg-white rounded ${
+            sidenavOpen
+              ? "lane-details-conatiner_collapse"
+              : "lane-details-conatiner"
+          } duration-300`}
         >
           <LaneDetails />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

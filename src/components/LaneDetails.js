@@ -6,6 +6,7 @@ import Lorry from "../assets/Road.svg";
 import Air from "../assets/Air.svg";
 import Ship from "../assets/Ship.svg";
 import columSelect from "../assets/Column-Select.svg";
+import ButtonDownCaret from "../assets/Button-Down-Caret.svg";
 
 export default function LaneDetails() {
   const [checkHover, setCheckHover] = useState(0);
@@ -97,12 +98,17 @@ export default function LaneDetails() {
             <button className="me-2 font-sans h-[24px] w-[43px] border rounded font-bold flex items-center justify-center py-[5px] px-[10px] bg-[#E7E7E7] text-[#616161] text-[10px] uppercase">
               Edit
             </button>
-            <button className="font-sans h-[24px] w-[94px] border rounded font-bold flex items-center justify-center py-[5px] px-[10px] bg-[#E7E7E7] text-[#616161] text-[10px] uppercase">
-              Associate
+            <button className="font-sans h-[24px] w-[94px] border rounded font-bold flex items-center content-center justify-center py-[5px] px-[10px] bg-[#E7E7E7] text-[#616161] text-[10px] uppercase">
+              <span className="me-1">Associate</span>
+              <img
+                className="h-[8px] w-[10px]"
+                alt=""
+                src={ButtonDownCaret}
+              />
             </button>
           </div>
         </div>
-        <div className="border border-dashed rounded-sm border-[#B5C3CB] ps-4 mt-2 py-3">
+        <div className="border border-dashed rounded-sm border-[#B5C3CB] ps-4 mt-2 py-3 hover:bg-[#f0f3f6]">
           <h3 className="text-[#1FCD93] font-sans font-semibold text-[12px]">
             Lane Creation
           </h3>
