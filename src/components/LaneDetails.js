@@ -80,7 +80,7 @@ export default function LaneDetails() {
   return (
     <div className="flex h-full">
       <div
-        className={`px-4 h-full ${
+        className={`px-4 h-full transition-smooth ${
           openLaneUpload ? "w-[75%] border-r" : "w-[100%]"
         }`}
       >
@@ -137,12 +137,12 @@ export default function LaneDetails() {
               </div>
               <div className="font-sans mt-8">
                 <table>
-                  <thead class="text-xs uppercase text-left">
+                  <thead className="text-xs uppercase text-left">
                     <tr>
                       <th className="flex items-center space-x-2 pl-6 mb-3 text-[#005399] leading-[13.62px] tracking-[0.5px]">
                         <input type="checkbox" />
                         <span className="text-[10px]">LANE NAME</span>
-                        <div class="border-l-2 border-[#005399] h-[13.62px]"></div>
+                        <div className="border-l-2 border-[#005399] h-[13.62px]"></div>
                         <span className="text-[10px]">
                           SOURCE - DESTINATION
                         </span>
@@ -154,7 +154,7 @@ export default function LaneDetails() {
                       const condition =
                         checkHover === item.id || checkItems.includes(item.id);
                       return (
-                        <tr>
+                        <tr key={item.id}>
                           <td
                             onMouseOver={() => {
                               setCardHover(item.id);
@@ -236,7 +236,7 @@ export default function LaneDetails() {
               </div>
               <div className="font-sans mt-5 w-[900px]">
                 <table className="w-[100%] overflow-x-scroll">
-                  <thead class="text-xs text-gray-700 text-left flex items-end w-[100%] space-x-5">
+                  <thead className="text-xs text-gray-700 text-left flex items-end w-[100%] space-x-5">
                     <tr className="w-[18%]">
                       <th className="flex space-x-1 mb-3">
                         <span className="text-[12px]">Movement Type</span>
@@ -245,21 +245,21 @@ export default function LaneDetails() {
                     <tr className="w-[18%]">
                       <th className="flex space-x-1 mb-3">
                         <span className="text-[12px]">Contract Type</span>
-                        <div class="border-l-2 border-[#9CB3BF80] h-8"></div>
+                        <div className="border-l-2 border-[#9CB3BF80] h-8"></div>
                         <span className="text-[12px]">contract parameter</span>
                       </th>
                     </tr>
                     <tr className="w-[18%]">
                       <th className="flex space-x-1 mb-3">
                         <span className="text-[12px]">Delivery Type</span>
-                        <div class="border-l-2 border-[#9CB3BF80] h-4"></div>
+                        <div className="border-l-2 border-[#9CB3BF80] h-4"></div>
                         <span className="text-[12px]">THU</span>
                       </th>
                     </tr>
                     <tr className="w-[18%]">
                       <th className="flex space-x-1 mb-3">
                         <span className="text-[12px]">Budget</span>
-                        <div class="border-l-2 border-[#9CB3BF80] h-4"></div>
+                        <div className="border-l-2 border-[#9CB3BF80] h-4"></div>
                         <span className="text-[12px]">Ceiling price</span>
                       </th>
                     </tr>
@@ -288,17 +288,17 @@ export default function LaneDetails() {
                           </td>
                           <td className="flex rounded w-[18%]">
                             {item.contractType}
-                            <div class="border-l-2 mx-1 border-[#9CB3BF80] h-4"></div>
+                            <div className="border-l-2 mx-1 border-[#9CB3BF80] h-4"></div>
                             {item.contractParamenter}
                           </td>
                           <td className="flex rounded w-[18%]">
                             {item.deliveryType}
-                            <div class="border-l-2 mx-1 border-[#9CB3BF80] h-4"></div>
+                            <div className="border-l-2 mx-1 border-[#9CB3BF80] h-4"></div>
                             {item.THU}
                           </td>
                           <td className="flex rounded w-[18%]">
                             {item.budget}
-                            <div class="border-l-2 mx-1 border-[#9CB3BF80] h-4"></div>
+                            <div className="border-l-2 mx-1 border-[#9CB3BF80] h-4"></div>
                             {item.price}
                           </td>
                           <td className="flex rounded w-[18%]">{item.count}</td>
@@ -312,8 +312,8 @@ export default function LaneDetails() {
           </div>
         </div>
       </div>
-      <div className={`${openLaneUpload ? "w-[25%] " : "w-4"} duration-300`}>
-        {openLaneUpload && <LaneUpdate closeLaneUpload={closeLaneUpload} />}
+      <div className={`${openLaneUpload ? "w-[25%] opacity-100" : "w-4 opacity-0"} duration-300 transition-smooth`}>
+        {<LaneUpdate closeLaneUpload={closeLaneUpload} />}
       </div>
     </div>
   );

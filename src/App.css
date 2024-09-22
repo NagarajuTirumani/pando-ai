@@ -6,6 +6,9 @@
   height: 40vmin;
   pointer-events: none;
 }
+.transition-smooth {
+  transition: all 0.5s ease-in;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
