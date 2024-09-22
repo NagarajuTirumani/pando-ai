@@ -3,7 +3,7 @@ import ArrowIcon from '../assets/Right-Caret.svg'
 
 const SubHeader = () => {
   return (
-    <div className="h-[50px] flex justify-between items-center shadow-md p-3">
+    <div className="h-[50px] flex justify-between items-center shadow-md p-3 bg-[#ffffff]">
       <div className="flex space-x-3 items-center text-[13px]">
         <span className="text-[#616161] font-semibold">Sourcing Event</span>
         <span><img alt="" src={ArrowIcon}/></span>

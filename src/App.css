@@ -38,6 +38,15 @@ body {
   width: calc(100% - 52px);
 }
 
+@media (min-width: 2000px) {
+  .adjust_margin {
+    margin-left: 0;
+  }
+  .count-margin {
+    margin-left: 32px !important;
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

@@ -13,9 +13,11 @@ const MainLayout = () => {
 
   return (
     <div className="main-container">
-      <Header />
-      <SubHeader />
-      <div className="p-3 bg-gray-100 min-h-[100vh] flex space-x-2">
+      <div className="fixed top-0 z-10 w-full">
+        <Header />
+        <SubHeader />
+      </div>
+      <div className="p-3 bg-gray-100 min-h-[100vh] flex space-x-2 relative top-[100px]">
         <SideNavbar getsideNavOpen={openNavbar} />
         <div
           className={`bg-white rounded ${

@@ -100,11 +100,7 @@ export default function LaneDetails() {
             </button>
             <button className="font-sans h-[24px] w-[94px] border rounded font-bold flex items-center content-center justify-center py-[5px] px-[10px] bg-[#E7E7E7] text-[#616161] text-[10px] uppercase">
               <span className="me-1">Associate</span>
-              <img
-                className="h-[8px] w-[10px]"
-                alt=""
-                src={ButtonDownCaret}
-              />
+              <img className="h-[8px] w-[10px]" alt="" src={ButtonDownCaret} />
             </button>
           </div>
         </div>
@@ -160,7 +156,15 @@ export default function LaneDetails() {
                       const condition =
                         checkHover === item.id || checkItems.includes(item.id);
                       return (
-                        <tr key={item.id}>
+                        <tr
+                          key={item.id}
+                          onMouseOver={() => {
+                            setCardHover(item.id);
+                          }}
+                          onMouseLeave={() => {
+                            setCardHover(0);
+                          }}
+                        >
                           <td
                             onMouseOver={() => {
                               setCardHover(item.id);
@@ -169,7 +173,9 @@ export default function LaneDetails() {
                               setCardHover(0);
                             }}
                             className={`flex items-center space-x-3 mt-1 bg-[#FAFAFA] px-3 py-4 w-[300px] rounded ${
-                              cardHover === item.id ? "" : "bg-[#FAFAFA]"
+                              cardHover === item.id
+                                ? "bg-[#f0f3f6]"
+                                : "bg-[#FAFAFA]"
                             }`}
                           >
                             <div
@@ -179,7 +185,9 @@ export default function LaneDetails() {
                               onMouseLeave={() => {
                                 showcheckBox(0);
                               }}
-                              className={`${item.iconBgColor} h-[30px] w-[30px] rounded-full flex items-center justify-center`}
+                              className={`${
+                                !condition && item.iconBgColor
+                              } h-[30px] w-[30px] rounded-full flex items-center justify-center`}
                             >
                               {!condition && (
                                 <img
@@ -240,7 +248,7 @@ export default function LaneDetails() {
                   }
                 />
               </div>
-              <div className="font-sans w-[900px]">
+              <div className="font-sans min-w-[900px]">
                 <table className="w-[100%] overflow-x-scroll mt-5">
                   <thead className="text-[10px] text-[#005399] uppercase text-left flex items-end content-center w-[100%] space-x-5 leading-[13.62px] tracking-[0.5px]">
                     <tr className="w-[12%]">
@@ -248,26 +256,22 @@ export default function LaneDetails() {
                         <span className="text-[10px]">Movement Type</span>
                       </th>
                     </tr>
-                    <tr className="w-[24%]">
+                    <tr className="w-[22%]">
                       <th className="flex items-center mb-2 text-[10px]">
-                        <div className="ml-4">
+                        <div className="ml-4 adjust_margin">
                           Contract Type | <br />
                           contract parameter
                         </div>
                       </th>
                     </tr>
                     <tr className="w-[18%]">
-                      <th className="flex flex-wrap space-x-1 mb-3">
-                        <span className="text-[10px]">Delivery Type</span>
-                        <div className="border-l-2 border-[#005399] h-[13.62px]"></div>
-                        <span className="text-[10px]">THU</span>
+                      <th className="flex flex-wrap space-x-1 mb-3 text-[10px]">
+                        <div className="ml-4 adjust_margin">Delivery Type | THU</div>
                       </th>
                     </tr>
                     <tr className="w-[18%]">
-                      <th className="flex flex-wrap space-x-1 mb-3">
-                        <span className="text-[10px]">Budget</span>
-                        <div className="border-l-2 border-[#005399] h-[13.62px]"></div>
-                        <span className="text-[10px]">Ceiling price</span>
+                      <th className="flex flex-wrap space-x-1 mb-3 text-[10px]">
+                        <div className="ml-4 adjust_margin">Budget | Ceiling price</div>
                       </th>
                     </tr>
                     <tr className="w-[18%]">
@@ -288,7 +292,17 @@ export default function LaneDetails() {
                       return (
                         <tr
                           key={index}
-                          className="flex items-center space-x-5 px-3 py-6 rounded font-sans text-[12px] bg-[#FAFAFA] mt-1.5 overflow-auto scroll-contaier"
+                          onMouseOver={() => {
+                            setCardHover(item.id);
+                          }}
+                          onMouseLeave={() => {
+                            setCardHover(0);
+                          }}
+                          className={`flex items-center space-x-5 px-3 py-6 rounded font-sans text-[12px] mt-1.5 overflow-auto scroll-contaier ${
+                            cardHover === item.id
+                              ? "bg-[#f0f3f6]"
+                              : "bg-[#FAFAFA]"
+                          }`}
                         >
                           <td className="flex w-[12%] space-x-1 font-sans text-[12px] leading-[16px] text-[#404040]">
                             {item.movementType}
@@ -306,7 +320,7 @@ export default function LaneDetails() {
                             <div className="border-l-2 mx-1 border-[#404040] h-[12px]"></div>
                             {item.price}
                           </td>
-                          <td className="flex rounded w-[18%]">{item.count}</td>
+                          <td className="flex rounded w-[18%] count-margin">{item.count}</td>
                         </tr>
                       );
                     })}
